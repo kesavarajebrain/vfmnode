@@ -22,9 +22,8 @@
     "start": "node server.js",
     "build": "ng build",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
-  },
+    "e2e": "ng e2e"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC"
