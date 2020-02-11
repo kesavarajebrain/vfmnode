@@ -11,7 +11,7 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.json({ limit: "4mb" }))
 app.use(bodyParser.urlencoded({ limit: "4mb", extended: true, parameterLimit: 50000 }))
 app.use(cors());
-app.use('/api', api);
+// app.use('/api', api);
 app.use(function (req, res, next) {
   //set headers to allow cross origin request.
   res.header('Access-Control-Allow-Origin', '*');
@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
 
 //Serve only the static files form the dist directory
 // app.use(express.static(__dirname + '/src'));
-// app.use(express.static(path.join(__dirname, './dist/vaanisai')));
+app.use(express.static(path.join(__dirname, './routes')));
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './routes/api'));
