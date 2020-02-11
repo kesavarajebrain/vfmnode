@@ -12,7 +12,6 @@ app.use(bodyParser.json({ limit: "4mb" }))
 app.use(bodyParser.urlencoded({ limit: "4mb", extended: true, parameterLimit: 50000 }))
 app.use(cors());
 app.use('/api', api);
-
 app.use(function (req, res, next) {
   //set headers to allow cross origin request.
   res.header('Access-Control-Allow-Origin', '*');
@@ -24,18 +23,18 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/api', function (req, res) {
-  res.end('file catcher example');
-});
+// app.get('/api', function (req, res) {
+//   res.end('file catcher example');
+// });
 
 //Serve only the static files form the dist directory
 // app.use(express.static(__dirname + '/src'));
 // app.use(express.static(path.join(__dirname, './dist/vaanisai')));
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, ''));
-// });
-
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './routes/api'));
+});
+console.log('######' , __dirname)
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
 console.log('server running on port', 8080);
