@@ -29,10 +29,10 @@ app.use(function (req, res, next) {
 
 //Serve only the static files form the dist directory
 // app.use(express.static(__dirname + '/src'));
-app.use(express.static(path.join(__dirname, '/routes')));
+// app.use(express.static(path.join(__dirname, './routes')));
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/routes/api'));
+  res.sendFile(path.join(__dirname, './routes/api'));
 });
 console.log('######' , __dirname)
 // Start the app by listening on the default Heroku port
